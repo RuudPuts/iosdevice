@@ -12,15 +12,9 @@ int main (int argc, char *argv[]) {
 		return 0;
 	}
 
-	int index;
-	for(index = 0; index < argc; index++) {
-		printf("The %d is %s\n", index,argv[index]);
-	}
-
 	int opt;
 
 	while ((opt = getopt(argc, argv, "u:h")) != -1) {
-		printf("opt\n");
 		switch (opt) {
 			case 'u':
 				device_udid = optarg;
