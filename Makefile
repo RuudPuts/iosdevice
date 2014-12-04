@@ -3,14 +3,14 @@ PREFIX = /usr/local
 
 .PHONY: all install clean
 
-all: mobiledevice
+all: iosdevice
 
-mobiledevice: mobiledevice.m mobiletunnel.c mobiledevice.h
-	$(CC) -Wall -fobjc-arc -o mobiledevice -framework CoreFoundation -framework Cocoa -framework MobileDevice -F/System/Library/PrivateFrameworks mobiledevice.m mobiletunnel.c
+iosdevice: iosdevice.m iosdevice.h
+	$(CC) -Wall -fobjc-arc -o iosdevice -framework CoreFoundation -framework Cocoa -framework MobileDevice -F /System/Library/PrivateFrameworks iosdevice.m
 
-install: mobiledevice
+install: iosdevice
 	install -d ${PREFIX}/bin
-	install mobiledevice ${PREFIX}/bin
+	install iosdevice ${PREFIX}/bin
 
 clean:
-	rm -rf mobiledevice
+	rm -rf iosdevice
